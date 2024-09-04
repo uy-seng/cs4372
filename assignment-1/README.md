@@ -12,4 +12,3 @@
 | sulphates             | Feature | Continuous |                         | no             |
 | alcohol               | Feature | Continuous |                         | no             |
 | quality               | Target  | Integer    | score between 0 and 10  | no             |
-| color                 | Other   | Categorical| red or white            | no             |
