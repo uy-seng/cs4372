@@ -1,0 +1,37 @@
+recap about previous class
+lesson review
+    cover topic such as
+        root node   
+        impurity 
+
+    impurtiy meansure:
+        entropy
+        gini index
+    
+    impurity is always calculated on the target variable (for classification, it will be on the class variable)
+
+    after we calculate impurity for the target,
+    we will check each of the n features, find the lowest entropy at the child level
+    get information gain
+        IG_x1 =  H - H'
+        IG_x2 .........
+                |
+                |
+                |
+        IG_xn ..........
+
+
+how to compute entropy
+    suppose that we have n class
+    for every class i, we compute p_i where p_i is the probability of class i occuring
+    then we do -1 * sum(p_i)log_2(p_i)
+
+how to calculate gini index
+    1 - sum(p_i^2)
+
+high entropy = lots of class mixture
+low entropy = less class mixture
+
+
+
+    
