@@ -32,6 +32,32 @@ how to calculate gini index
 high entropy = lots of class mixture
 low entropy = less class mixture
 
+closing out classification trees
 
+if we let the tree grows as much as it want, overfitting will happen
 
+regression tree
+    in regresion tree, we try to predict a numerical target attribute
+    need different impurity metric
+
+    different optimization
     
+    goodness of fit will be calculated using sum of squares of residual
+    ssr = variance = impurity
+
+    aim of split:
+        high variance -> low variance
+    
+    problem with too many split -> overfitting
+
+HOW TO AVOID overfitting
+
+bias variance tradeoff
+    bias is how far your average from the target
+
+
+    high bias - model is too simple (undefitting)
+    high variance - model is too complex (overfitting)
+    every model suffer from this
+
+ensembling
