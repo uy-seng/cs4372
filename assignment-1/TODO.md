@@ -1,24 +1,24 @@
 # 1. Project and Dataset Selection 
 For this assignment, 
-- You will need to choose a dataset from the UCI ML repository, which is located at: https://archive.ics.uci.edu/ml/datasets.php.
-- You will need to set the Default Task to Regression, and after that you are free to choose any dataset of your choice. 
-- You will need to understand the dataset by reading its description and making sure you know which is the predicted variable and which are the predictors i.e. independent variables. 
+- [x] You will need to choose a dataset from the UCI ML repository, which is located at: https://archive.ics.uci.edu/ml/datasets.php.
+- [x] You will need to set the Default Task to Regression, and after that you are free to choose any dataset of your choice. 
+- [x] You will need to understand the dataset by reading its description and making sure you know which is the predicted variable and which are the predictors i.e. independent variables. 
 
 # 2. Regression Model Building 
 In this section, you will perform data pre-processing, loading, model creation and results analysis. 
 - You will need to create two different models for regression: 
-    1. Stochastic Gradient Descent using SGDRegressor library of Scikit-learn. 
-    2. Ordinary Linear Regression using the statsmodels library. 
+    - [x] 1. Stochastic Gradient Descent using SGDRegressor library of Scikit-learn. 
+    - [x] 2. Ordinary Linear Regression using the statsmodels library. 
 
 # 2.1. Pre-Processing 
 The following are the required pre-processing steps. Of course, you can add more as per your requirements. 
-- Loading the data into Pandas DataFrame object. Remember to use public URLs to read the file. 
-- Examining data for consistency: Check for null values, missing data, and any data inconsistency and handle them before proceeding forward. 
-- Examining attributes and target variable(s): Be sure you clearly understand each of the attributes and the target variable. Examine the various attributes and convert any categorical ones to numerical ones, if needed. Obtain and output summary of the attributes. Are the attributes normally distributed? If not, what could be the reason? 
-- Standardize and normalize the attributes. 
-- Find how the attributes are correlated to each other and the target variable. Perform numerical and visual analysis and output plots and results. 
-- Identify a few important attributes and proceed forward. Do not use all attributes blindly. 
-- Split the data into training and testing parts. The ratio is up to you. 
+- [x] Loading the data into Pandas DataFrame object. Remember to use public URLs to read the file. 
+- [x] Examining data for consistency: Check for null values, missing data, and any data inconsistency and handle them before proceeding forward. 
+- [x] Examining attributes and target variable(s): Be sure you clearly understand each of the attributes and the target variable. Examine the various attributes and convert any categorical ones to numerical ones, if needed. Obtain and output summary of the attributes. Are the attributes normally distributed? If not, what could be the reason? 
+- [x] Standardize and normalize the attributes. 
+- [x] Find how the attributes are correlated to each other and the target variable. Perform numerical and visual analysis and output plots and results. 
+- [x] Identify a few important attributes and proceed forward. Do not use all attributes blindly. 
+- [x] Split the data into training and testing parts. The ratio is up to you. 
 
 # 2.2. Model Construction 
 As stated earlier, you need to create two types of models using SGDRegressor library of Scikit-Learn and OLS library of statsmodels.
