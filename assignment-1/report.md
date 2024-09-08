@@ -28,6 +28,7 @@ Below is the distribution of our dataset for all features.
 The data in the dataset do have **missing value**. However, there exist some outlier for each features. In this assignment, I decided to keep the outlier since it does not affects our model.
 
 We have the correlation heatmap between all features as below:
+
 ![Correlation Heapmap](https://github.com/uy-seng/cs4372/blob/main/assignment-1/graph/correlation_heatmap.png?raw=true "Correlation Heatmap")
 
 From the correlation heatmap, we can extract the correlation between our target, **quality** and other features:
