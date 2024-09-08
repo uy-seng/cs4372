@@ -19,7 +19,10 @@ The table below contains all the attribute for the dataset:
 | alcohol                                                                                                                 | Feature                    | Continuous              |
 | quality                                                                                                                 | Target                     | Integer                 |
 
+Below is the distribution of our dataset for all features.
 
+![Distribution of dataset](https://github.com/uy-seng/cs4372/blob/main/assignment-1/graph/data_distribution.png?raw=true "Distribution of dataset")
+*We notice that only Density and pH are normally distributed. From the look of distribution, we need to collect more data for abnormal features, as it skews to the left.*
 
 ## 2. Preprocessing Dataset
 The data in the dataset do have **missing value**. However, there exist some outlier for each features. In this assignment, I decided to keep the outlier since it does not affects our model.
@@ -113,6 +116,42 @@ After performing the **Grid Search** on **SGDRegressor**, we have the following 
 
 ### 3.2. Ordinary Least Square(OLS)
 I used the **OLS** model from **statsmodel** package. The OLS model gave us a similar **R2** score compared to the **SGDRegressor**.
+
+After running the model, we obtained the following data:
+| Variable                         | Coefficient   | Std Err    | t        | P>|t|   | [0.025   | 0.975]   |
+| :------------------------------- | :------------ | :--------- | :------- | :---- | :------- | :-------- |
+| const                            | 4.2632        | 0.458      | 9.303    | 0.000 | 3.364    | 5.162     |
+| volatile_acidity                  | -1.0383       | 0.114      | -9.114   | 0.000 | -1.262   | -0.815    |
+| chlorides                         | -1.8379       | 0.432      | -4.256   | 0.000 | -2.685   | -0.991    |
+| total_sulfur_dioxide              | -0.0023       | 0.001      | -4.046   | 0.000 | -0.003   | -0.001    |
+| pH                               | -0.4467       | 0.132      | -3.376   | 0.001 | -0.706   | -0.187    |
+| sulphates                         | 0.8565        | 0.120      | 7.143    | 0.000 | 0.621    | 1.092     |
+| alcohol                           | 0.2977        | 0.019      | 15.418   | 0.000 | 0.260    | 0.336     |
+
+| Metric                           | Value         |
+| :------------------------------- | :------------ |
+| Dep. Variable                    | quality       |
+| R-squared                        | 0.348         |
+| Adj. R-squared                   | 0.345         |
+| F-statistic                      | 113.2         |
+| Prob (F-statistic)               | 1.56e-114     |
+| Log-Likelihood                   | -1276.1       |
+| No. Observations                 | 1279          |
+| AIC                              | 2566          |
+| Df Residuals                     | 1272          |
+| BIC                              | 2602          |
+| Df Model                         | 6             |
+| Covariance Type                  | nonrobust     |
+| Omnibus                          | 19.066        |
+| Durbin-Watson                    | 1.933         |
+| Prob(Omnibus)                    | 0.000         |
+| Jarque-Bera (JB)                 | 24.800        |
+| Skew                             | -0.188        |
+| Prob(JB)                         | 4.12e-06      |
+| Kurtosis                         | 3.570         |
+| Cond. No.                        | 1.61e+03      |
+
+From the result itself, we noticed the R2 value is 0.348, indicating that about 34.8% of the variability in the target variable (quality) is explained by the model. We have a high F-statistic indicating that all the features that we choose are significantly relevant to the model itself. As for the feature itself, all feature seems to have a coefficient that impacts the quality in some ways, as an improvement, we can remove the total_sulfur_dioxide as it have the lowest coefficient out of all features, indicating that it is less relevant to the model.
 
 # 4. Conclusions
 
