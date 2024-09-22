@@ -15,6 +15,8 @@ The following heatmap shows the correlation between all features:
 
 ![Correlation Heatmap](https://github.com/uy-seng/cs4372/blob/main/assignment-2/image/correlation_heatmap.png?raw=true)
 
+*Figure 1: Correlation Heatmap between all features*
+
 From the heatmap we extract only the relationships between the features and the target variable (`LUNG_CANCER`).
 
 All columns except (`GENDER`, `SMOKING`, `SHORTNESS_OF_BREATH`) are used as features for the model, as the correlation matrix (see Table 1) indicates that each feature has a significant relationship with the target variable. We remove features that are lower than *10%* as it does not contribute much to the model and increases the complexity size of the model.
@@ -36,7 +38,14 @@ All columns except (`GENDER`, `SMOKING`, `SHORTNESS_OF_BREATH`) are used as feat
 | SHORTNESS_OF_BREATH     | 0.064407    |
 | SWALLOWING_DIFFICULTY   | 0.268940    |
 | CHEST_PAIN              | 0.194856    |
+
 *Table 1: Correlation between each feature and the target variable, LUNG_CANCER.*
+
+Another observation that we noticed about the dataset is that the distribution of lung cancer patient and healthy patient is severely imbalanced. (As seen in *Figure 2*)
+
+![Data Distribution](https://github.com/uy-seng/cs4372/blob/main/assignment-2/image/dataset_distribution.png?raw=true)
+
+*Figure 2: Dataset Distribution for each features*
 
 # 3. Tree Model Building
 
@@ -58,47 +67,47 @@ The table below summarizes the accuracy achieved for each set of hyperparameter 
 
 | Max Depth | Criterion | Accuracy                |
 | :-------- | :-------- | :---------------------- |
-| 1         | gini      | 0.8554216867469879      |
-| 1         | entropy   | 0.8554216867469879      |
-| 2         | gini      | 0.8554216867469879      |
-| 2         | entropy   | 0.8554216867469879      |
-| 3         | gini      | 0.8313253012048193      |
-| 3         | entropy   | 0.8433734939759037      |
-| 4         | gini      | 0.8554216867469879      |
-| 4         | entropy   | 0.8313253012048193      |
-| 5         | gini      | 0.8554216867469879      |
-| 5         | entropy   | 0.8433734939759037      |
-| 6         | gini      | 0.8554216867469879      |
-| 6         | entropy   | 0.8313253012048193      |
-| 7         | gini      | 0.8554216867469879      |
+| 1         | gini      | 0.5542168674698795      |
+| 1         | entropy   | 0.5542168674698795      |
+| 2         | gini      | 0.7228915662650602      |
+| 2         | entropy   | 0.7228915662650602      |
+| 3         | gini      | 0.6746987951807228      |
+| 3         | entropy   | 0.6746987951807228      |
+| 4         | gini      | 0.8072289156626506      |
+| 4         | entropy   | 0.8072289156626506      |
+| 5         | gini      | 0.8433734939759037      |
+| 5         | entropy   | 0.8072289156626506      |
+| 6         | gini      | 0.8433734939759037      |
+| 6         | entropy   | 0.8072289156626506      |
+| 7         | gini      | 0.8072289156626506      |
 | 7         | entropy   | 0.8313253012048193      |
-| 8         | gini      | 0.8554216867469879      |
-| 8         | entropy   | 0.8313253012048193      |
-| 9         | gini      | 0.8554216867469879      |
+| 8         | gini      | 0.8072289156626506      |
+| 8         | entropy   | 0.8433734939759037      |
+| 9         | gini      | 0.8072289156626506      |
 | 9         | entropy   | 0.8313253012048193      |
-| 10        | gini      | 0.8554216867469879      |
+| 10        | gini      | 0.8072289156626506      |
 | 10        | entropy   | 0.8313253012048193      |
+
+*Table 2: The combinations of different max_depth and criterion and the accuracy we obtained.*
 
 Based on the table, we can make some of the following observations:
 
-- We notice that as the depth increases, the accuracy plateus meaning that depth 1 is enough for us to make predictions with enough accuracy. 
-- The low number of depth indicates to us that the data is linearly separable.
 - We notice that the combinations of different `criterions` and `max_depth` does not yield us any improved results. We will omit out the criterions for our parameter search in the subsequent experiments.
 
 By systematically testing various combinations of these parameters, we aim to identify the optimal settings that maximize the classification accuracy of our model. The optimal settings for the hyperparameters is as follow:
 
 ```
-Best accuracy: 0.8554216867469879
-Best max_depth: 1
+Best accuracy: 0.8433734939759037
+Best max_depth: 5
 Best model report:
               precision    recall  f1-score   support
 
-           0       0.00      0.00      0.00        12
-           1       0.86      1.00      0.92        71
+           0       0.47      0.75      0.58        12
+           1       0.95      0.86      0.90        71
 
-    accuracy                           0.86        83
-   macro avg       0.43      0.50      0.46        83
-weighted avg       0.73      0.86      0.79        83
+    accuracy                           0.84        83
+   macro avg       0.71      0.80      0.74        83
+weighted avg       0.88      0.84      0.86        83
 ```
 
 The results for the decision tree trained with the optimal parameters are presented below:
